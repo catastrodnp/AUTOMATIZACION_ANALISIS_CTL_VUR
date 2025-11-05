@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import re
+import re,os
 from hermetrics.jaro_winkler import JaroWinkler
 from hermetrics.jaro import Jaro
 from datetime import datetime
@@ -10,8 +10,8 @@ from rapidfuzz import fuzz
 from functions import preprocessing, data_converter
 
 comparator = JaroWinkler()
-list_cods = pd.read_excel('utils\\codigos_trazabilidad.xlsx')
-list_past_cods = pd.read_excel('utils\\codigos_past.xlsx')
+list_cods = pd.read_excel(os('utils','codigos_trazabilidad.xlsx'))#cambiado por 'utils\\codigos_trazabilidad.xlsx'
+list_past_cods = pd.read_excel(os('utils','codigos_past.xlsx'))
 
 # OBTENCION DE AREAS
 
@@ -405,4 +405,5 @@ def process_document(bb_data):
     
     alerts = demanda_reivindicatoria(anotaciones, alerts, persons)
     
+
     return consulta, informacion, anotaciones, salvedades, nuevas_matriculas, alerts, persons
