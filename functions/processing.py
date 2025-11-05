@@ -10,8 +10,8 @@ from rapidfuzz import fuzz
 from functions import preprocessing, data_converter
 
 comparator = JaroWinkler()
-list_cods = pd.read_excel(os('utils','codigos_trazabilidad.xlsx'))#cambiado por 'utils\\codigos_trazabilidad.xlsx'
-list_past_cods = pd.read_excel(os('utils','codigos_past.xlsx'))
+list_cods = pd.read_excel(os.path.join('utils','codigos_trazabilidad.xlsx'))#cambiado por 'utils\\codigos_trazabilidad.xlsx'
+list_past_cods = pd.read_excel(os.path.join('utils','codigos_past.xlsx'))
 
 # OBTENCION DE AREAS
 
@@ -407,3 +407,4 @@ def process_document(bb_data):
     
 
     return consulta, informacion, anotaciones, salvedades, nuevas_matriculas, alerts, persons
+
